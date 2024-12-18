@@ -1,0 +1,22 @@
+.ORIG x3000 
+
+LD R1, DIVISOR
+LD R6, DIVIDND
+
+NOT R4, R1
+ADD R4, R4, #1
+
+LOOP
+
+    ADD R6, R6, R4
+    BRn DONE
+    ADD R2, R2, #1
+    BRnzp LOOP
+
+DONE    ADD R3, R6, R1
+        HALT
+
+DIVISOR 	.FILL #30
+DIVIDND 	.FILL #100
+
+.END
